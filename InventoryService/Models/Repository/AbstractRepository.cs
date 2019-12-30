@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -21,6 +22,22 @@ namespace InventoryService.Models.Repository
             {
                 var query= context.Set<T>().Where(expression);
                 return query.ToList();
+            }
+        }
+        public virtual void Edit (T model)
+        {
+            using (var context = new ShopContext())
+            {
+                context.Entry(model).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+        public virtual void Delete (T model)
+        {
+            using (var context= new ShopContext())
+            {
+                context.Entry(model).State = EntityState.Deleted;
+                context.SaveChanges();
             }
         }
     }
