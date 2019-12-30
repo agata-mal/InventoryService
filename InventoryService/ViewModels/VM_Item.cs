@@ -5,6 +5,6 @@
         public int Id { get; set; }
         public int ItemNumber { get; set; }
         public string ItemName { get; set; }
-        public double InStock { get; set; }
+        public double Amount { get; set; }
     }
 }

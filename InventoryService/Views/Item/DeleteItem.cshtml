@@ -1,0 +1,48 @@
+﻿@model InventoryService.ViewModels.VM_Item
+
+@{
+    ViewBag.Title = "DeleteItem";
+}
+
+<h2>Usuń produkt</h2>
+
+<h3>Czy chcesz usunąć ten produkt?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróc do listy", "ItemIndex")
+        </div>
+    }
+</div>
