@@ -137,6 +137,10 @@
     <Compile Include="Migrations\201912301008176_FirstMigratin.Designer.cs">
       <DependentUpon>201912301008176_FirstMigratin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912301329340_WalidacjaPolaIZminaNazwPola.cs" />
+    <Compile Include="Migrations\201912301329340_WalidacjaPolaIZminaNazwPola.Designer.cs">
+      <DependentUpon>201912301329340_WalidacjaPolaIZminaNazwPola.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Repository\AbstractRepository.cs" />
@@ -202,6 +206,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201912301008176_FirstMigratin.resx">
       <DependentUpon>201912301008176_FirstMigratin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912301329340_WalidacjaPolaIZminaNazwPola.resx">
+      <DependentUpon>201912301329340_WalidacjaPolaIZminaNazwPola.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
