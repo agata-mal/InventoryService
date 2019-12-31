@@ -40,6 +40,13 @@ namespace InventoryService.Controllers
             Mapper.Map(deleteItem, deleteVMItem);
             return View("DeleteItem", deleteVMItem);
         }
+        public ActionResult ShowItemsToInventory()
+        {
+            var itemsToINventory = _itemService.GetAllItems();
+            var vmItemsToInventory = new List<VM_Item>();
+            Mapper.Map(itemsToINventory, vmItemsToInventory);
+            return View("~/Views/Inventory/InventoryView.cshtml", vmItemsToInventory);
+        }
 
         [HttpPost]
         public ActionResult CreateNewItem(VM_Item model)
@@ -65,5 +72,6 @@ namespace InventoryService.Controllers
             _itemService.DeleteItem(deleteItem);
             return RedirectToAction("ItemIndex", "Item");
         }
+        
     }
 }
