@@ -144,6 +144,10 @@
     <Compile Include="Migrations\201912301329340_WalidacjaPolaIZminaNazwPola.Designer.cs">
       <DependentUpon>201912301329340_WalidacjaPolaIZminaNazwPola.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912311311413_Add_ExpectedAmount_Add_RealAmount_ItemModel.cs" />
+    <Compile Include="Migrations\201912311311413_Add_ExpectedAmount_Add_RealAmount_ItemModel.Designer.cs">
+      <DependentUpon>201912311311413_Add_ExpectedAmount_Add_RealAmount_ItemModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Repository\AbstractRepository.cs" />
@@ -216,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912301329340_WalidacjaPolaIZminaNazwPola.resx">
       <DependentUpon>201912301329340_WalidacjaPolaIZminaNazwPola.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912311311413_Add_ExpectedAmount_Add_RealAmount_ItemModel.resx">
+      <DependentUpon>201912311311413_Add_ExpectedAmount_Add_RealAmount_ItemModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
