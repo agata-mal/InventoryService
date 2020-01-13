@@ -10,12 +10,12 @@
 <table class="table">
     <tr>
         <th>
-           Kod produktu
+            Kod produktu
         </th>
         <th>
-           Nazwa produktu
+            Nazwa produktu
         </th>
-        
+
         <th>
             Stan rzeczywisty
         </th>
@@ -24,30 +24,32 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemName)
-        </td>
-      
-        <td>
-            <div class="col-md-10">
-                    @Html.EditorFor(modelItem => item.RealAmount, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(modelItem => item.RealAmount, "", new { @class = "text-danger" })
-                
-            </div>
-        </td>
-        <td>
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Zapisz" class="btn btn-default" />
-            </div>
-        </td>
-      
-    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
 
-}
+            <td>
+                <div class="col-md-10">
+                    @Html.EditorFor(modelItem => item.RealAmount, new { htmlAttributes = new { @class = "form-control", id = "realAmount"+item.Id }  })
+                    @Html.ValidationMessageFor(modelItem => item.RealAmount, "", new { @class = "text-danger" })
+
+                </div>
+            </td>
+            <td>
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Zapisz" class="btn btn-default btnSave" data-href="@item.Id" />
+                </div>
+            </td>
+
+        </tr>
+
+    }
 
 </table>
+@Scripts.Render("~/Scripts/ViewScripts/InventoryScript")

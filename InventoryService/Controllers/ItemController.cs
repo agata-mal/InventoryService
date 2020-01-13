@@ -20,7 +20,7 @@ namespace InventoryService.Controllers
             var itemList = _itemService.GetAllItems();
             var vmItemList = new List<VM_Item>();
             Mapper.Map(itemList, vmItemList);
-            return View("ItemList",vmItemList);
+            return View("ItemList", vmItemList);
         }
         public ActionResult CreateNewItem()
         {
@@ -40,13 +40,7 @@ namespace InventoryService.Controllers
             Mapper.Map(deleteItem, deleteVMItem);
             return View("DeleteItem", deleteVMItem);
         }
-        public ActionResult ShowItemsToInventory()
-        {
-            var itemsToINventory = _itemService.GetAllItems();
-            var vmItemsToInventory = new List<VM_Item>();
-            Mapper.Map(itemsToINventory, vmItemsToInventory);
-            return View("~/Views/Inventory/InventoryView.cshtml", vmItemsToInventory);
-        }
+
 
         [HttpPost]
         public ActionResult CreateNewItem(VM_Item model)
@@ -57,7 +51,7 @@ namespace InventoryService.Controllers
             return RedirectToAction("ItemIndex", "Item");
         }
         [HttpPost]
-        public ActionResult EditItem (VM_Item model)
+        public ActionResult EditItem(VM_Item model)
         {
             var editItem = new Item();
             Mapper.Map(model, editItem);
@@ -65,13 +59,13 @@ namespace InventoryService.Controllers
             return RedirectToAction("ItemIndex", "Item");
         }
         [HttpPost]
-        public ActionResult DeleteItem (VM_Item model)
+        public ActionResult DeleteItem(VM_Item model)
         {
             var deleteItem = new Item();
             Mapper.Map(model, deleteItem);
             _itemService.DeleteItem(deleteItem);
             return RedirectToAction("ItemIndex", "Item");
         }
-        
+
     }
 }
