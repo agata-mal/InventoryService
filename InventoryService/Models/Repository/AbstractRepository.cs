@@ -40,5 +40,6 @@ namespace InventoryService.Models.Repository
                 context.SaveChanges();
             }
         }
+       
     }
 }

@@ -23,22 +23,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExpectedAmount)
-        </td>
-        <td>
-            @Html.ActionLink("Edytuj", "EditItem", new { id=item.Id }) |
-            @Html.ActionLink("Usuń", "DeleteItem", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpectedAmount)
+            </td>
+            <td>
+                @Html.ActionLink("Edytuj", "EditItem", new { id = item.Id }) |
+                @Html.ActionLink("Usuń", "DeleteItem", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
 
 </table>
+<div>
+    @Html.ActionLink("Generuj PDF","CreatePdf","Item")
+</div>

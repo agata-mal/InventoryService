@@ -2,7 +2,10 @@
 using InventoryService.Models;
 using InventoryService.Service;
 using InventoryService.ViewModels;
+using iText.Kernel.Pdf;
+using iText.Layout;
 using System.Collections.Generic;
+using System.IO;
 using System.Web.Mvc;
 
 namespace InventoryService.Controllers
@@ -10,9 +13,11 @@ namespace InventoryService.Controllers
     public class ItemController : Controller
     {
         private readonly ItemService _itemService;
+        private readonly PdfService _pdfService;
         public ItemController()
         {
             _itemService = new ItemService();
+            _pdfService = new PdfService();
         }
         // GET: Item
         public ActionResult ItemIndex()
@@ -66,6 +71,20 @@ namespace InventoryService.Controllers
             _itemService.DeleteItem(deleteItem);
             return RedirectToAction("ItemIndex", "Item");
         }
-
+   
+        public FileResult CreatePdf()
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                PdfWriter writer = new PdfWriter(memoryStream);
+                PdfDocument pdfDoc = new PdfDocument(writer);
+                Document document = new Document(pdfDoc);
+                document.Add(_pdfService.AddTextToPdf());
+                document.Add(_pdfService.AddTableToPdf());
+                document.Close();
+                byte[] byteInfo = memoryStream.ToArray();
+                return File(byteInfo, "application/pdf");
+            }
+        }
     }
 }

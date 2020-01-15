@@ -36,5 +36,7 @@ namespace InventoryService.Controllers
 
             return Json("ERROR", JsonRequestBehavior.AllowGet);
         }
+
+        
     }
 }
