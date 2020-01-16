@@ -3,6 +3,8 @@
 
 namespace InventoryService.App_Start
 {
+    using InventoryService.Models.Repository;
+    using InventoryService.Models.Repository.Interfaces;
     using InventoryService.Service;
     using InventoryService.Service.Interfaces;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
@@ -63,6 +65,8 @@ namespace InventoryService.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IItemService>().To<ItemService>();
+            kernel.Bind<IItemRepository>().To<ItemRepository>();
+            kernel.Bind<IPdfService>().To<PdfService>();
         }        
     }
 }

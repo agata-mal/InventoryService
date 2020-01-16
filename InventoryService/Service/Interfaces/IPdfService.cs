@@ -2,7 +2,7 @@
 
 namespace InventoryService.Service.Interfaces
 {
-    interface IPdfService
+    public interface IPdfService
     {
         Paragraph AddTextToPdf();
         Table AddTableToPdf();

@@ -8,9 +8,9 @@ namespace InventoryService.Service
     public class PdfService : IPdfService
     {
         private readonly IItemService _itemService;
-        public PdfService()
+        public PdfService(IItemService itemService)
         {
-            _itemService = new ItemService();
+            _itemService = itemService;
         }
 
         public Paragraph AddTextToPdf()

@@ -1,5 +1,4 @@
 ﻿using InventoryService.Models;
-using InventoryService.Models.Repository;
 using InventoryService.Models.Repository.Interfaces;
 using InventoryService.Service.Interfaces;
 using System.Collections.Generic;
@@ -10,9 +9,9 @@ namespace InventoryService.Service
     public class ItemService : IItemService
     {
         private readonly IItemRepository _itemRepository;
-        public ItemService()
+        public ItemService(IItemRepository itemRepository)
         {
-            _itemRepository = new ItemRepository();
+            _itemRepository = itemRepository;
         }
         public void CreateItem(Item model)
         {
