@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using InventoryService.Service;
 using InventoryService.Service.Interfaces;
 using InventoryService.ViewModels;
 using System.Collections.Generic;
@@ -10,9 +9,9 @@ namespace InventoryService.Controllers
     public class InventoryController : Controller
     {
         private readonly IItemService _itemService;
-        public InventoryController()
+        public InventoryController(IItemService itemService)
         {
-            _itemService = new ItemService();
+            _itemService = itemService;
         }
         // GET: Inventory
         public ActionResult ShowItemsToInventory()
