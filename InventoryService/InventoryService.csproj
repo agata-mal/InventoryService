@@ -188,9 +188,13 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Repository\AbstractRepository.cs" />
+    <Compile Include="Models\Repository\Interfaces\IAbstractRepository.cs" />
+    <Compile Include="Models\Repository\Interfaces\IItemRepository.cs" />
     <Compile Include="Models\Repository\ItemRepository.cs" />
     <Compile Include="Models\ShopContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Interfaces\IItemService.cs" />
+    <Compile Include="Service\Interfaces\IPdfService.cs" />
     <Compile Include="Service\ItemService.cs" />
     <Compile Include="Service\PdfService.cs" />
     <Compile Include="ViewModels\VM_Item.cs" />

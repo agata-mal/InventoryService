@@ -1,6 +1,8 @@
-﻿namespace InventoryService.Models.Repository
+﻿using InventoryService.Models.Repository.Interfaces;
+
+namespace InventoryService.Models.Repository
 {
-    public class ItemRepository: AbstractRepository<Item>
+    public class ItemRepository : AbstractRepository<Item>, IItemRepository
     {
     }
 }

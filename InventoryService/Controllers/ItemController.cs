@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using InventoryService.Models;
 using InventoryService.Service;
+using InventoryService.Service.Interfaces;
 using InventoryService.ViewModels;
 using iText.Kernel.Pdf;
 using iText.Layout;
@@ -12,8 +13,8 @@ namespace InventoryService.Controllers
 {
     public class ItemController : Controller
     {
-        private readonly ItemService _itemService;
-        private readonly PdfService _pdfService;
+        private readonly IItemService _itemService;
+        private readonly IPdfService _pdfService;
         public ItemController()
         {
             _itemService = new ItemService();

@@ -1,12 +1,13 @@
-﻿using iText.Layout.Element;
+﻿using InventoryService.Service.Interfaces;
+using iText.Layout.Element;
 using iText.Layout.Properties;
 using System;
 
 namespace InventoryService.Service
 {
-    public class PdfService
+    public class PdfService : IPdfService
     {
-        private readonly ItemService _itemService;
+        private readonly IItemService _itemService;
         public PdfService()
         {
             _itemService = new ItemService();
@@ -31,7 +32,7 @@ namespace InventoryService.Service
             tableLayout.AddHeaderCell("roznica");
 
             var items = _itemService.GetAllItems();
-           
+
             foreach (var item in items)
             {
 
@@ -53,7 +54,7 @@ namespace InventoryService.Service
             {
                 cell.Add(new Paragraph("- " + Math.Abs(difference.Value).ToString()));
                 cell.SetBold();
-                
+
             }
             else
                 cell.Add(new Paragraph(difference.ToString()));

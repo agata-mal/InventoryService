@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryService.Models.Repository.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace InventoryService.Models.Repository
 {
-    public abstract class AbstractRepository <T> where T: class
+    public abstract class AbstractRepository <T>: IAbstractRepository <T> where T: class
     {
         public virtual void Create (T model)
         {

@@ -1,13 +1,15 @@
 ﻿using InventoryService.Models;
 using InventoryService.Models.Repository;
+using InventoryService.Models.Repository.Interfaces;
+using InventoryService.Service.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace InventoryService.Service
 {
-    public class ItemService
+    public class ItemService : IItemService
     {
-        private readonly ItemRepository _itemRepository;
+        private readonly IItemRepository _itemRepository;
         public ItemService()
         {
             _itemRepository = new ItemRepository();
