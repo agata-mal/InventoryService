@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
+using InventoryService.ApiConsumer;
+using InventoryService.ApiConsumer.Models;
 using InventoryService.Models;
+using InventoryService.Models.ApiModels;
 using InventoryService.Service.Interfaces;
 using InventoryService.ViewModels;
-using iText.Kernel.Pdf;
-using iText.Layout;
 using System.Collections.Generic;
-using System.IO;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace InventoryService.Controllers
@@ -13,11 +14,9 @@ namespace InventoryService.Controllers
     public class ItemController : Controller
     {
         private readonly IItemService _itemService;
-        private readonly IPdfService _pdfService;
-        public ItemController(IItemService itemService, IPdfService pdfService)
+        public ItemController(IItemService itemService)
         {
             _itemService = itemService;
-            _pdfService = pdfService;
         }
         // GET: Item
         public ActionResult ItemIndex()
@@ -71,20 +70,17 @@ namespace InventoryService.Controllers
             _itemService.DeleteItem(deleteItem);
             return RedirectToAction("ItemIndex", "Item");
         }
-   
-        public FileResult CreatePdf()
+        public async Task<FileResult> CreatePdf()
         {
-            using (var memoryStream = new MemoryStream())
-            {
-                PdfWriter writer = new PdfWriter(memoryStream);
-                PdfDocument pdfDoc = new PdfDocument(writer);
-                Document document = new Document(pdfDoc);
-                document.Add(_pdfService.AddTextToPdf());
-                document.Add(_pdfService.AddTableToPdf());
-                document.Close();
-                byte[] byteInfo = memoryStream.ToArray();
-                return File(byteInfo, "application/pdf");
-            }
+            var client = new PdfClient();
+            client.SetUrl("http://localhost:55892/api/PDFGeneration");
+            var inputModel = new PDFRaportInputModel();
+            inputModel.ItemList = new List<ItemModel>();
+            Mapper.Map(_itemService.GetAllItems(), inputModel.ItemList);
+            var file = await client.PostWithFile(inputModel);
+            return File(file, "application/pdf");
         }
+
+
     }
 }

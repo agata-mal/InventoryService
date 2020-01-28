@@ -66,7 +66,7 @@ namespace InventoryService.App_Start
         {
             kernel.Bind<IItemService>().To<ItemService>();
             kernel.Bind<IItemRepository>().To<ItemRepository>();
-            kernel.Bind<IPdfService>().To<PdfService>();
+         
         }        
     }
 }

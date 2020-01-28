@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using InventoryService.ApiConsumer.Models;
 using InventoryService.Models;
 using InventoryService.ViewModels;
 
@@ -11,6 +12,7 @@ namespace InventoryService.App_Start
             Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<Item, VM_Item>().ReverseMap();
+                cfg.CreateMap<Item, ItemModel>();
             });
 
         }

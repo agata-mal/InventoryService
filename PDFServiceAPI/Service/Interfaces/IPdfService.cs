@@ -1,11 +1,13 @@
 ﻿using iText.Layout.Element;
+using PDFServiceAPI.Models;
+using System.Collections.Generic;
 
-namespace InventoryService.Service.Interfaces
+namespace PDFServiceAPI.Service.Interfaces
 {
     public interface IPdfService
     {
         Paragraph AddTextToPdf();
-        Table AddTableToPdf();
+        Table AddTableToPdf(List<ItemModel> items);
         Cell GetDifferenceCell(double? realAmount, double expectedAmount);
     }
 }

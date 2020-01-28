@@ -1,18 +1,14 @@
-﻿using InventoryService.Service.Interfaces;
-using iText.Layout.Element;
+﻿using iText.Layout.Element;
 using iText.Layout.Properties;
+using PDFServiceAPI.Models;
+using PDFServiceAPI.Service.Interfaces;
 using System;
+using System.Collections.Generic;
 
-namespace InventoryService.Service
+namespace PDFServiceAPI.Service
 {
     public class PdfService : IPdfService
     {
-        private readonly IItemService _itemService;
-        public PdfService(IItemService itemService)
-        {
-            _itemService = itemService;
-        }
-
         public Paragraph AddTextToPdf()
         {
             var text = new Text("Raport stanów");
@@ -20,7 +16,7 @@ namespace InventoryService.Service
                                             .Add(text);
             return paragraph;
         }
-        public Table AddTableToPdf()
+        public Table AddTableToPdf(List<ItemModel> items)
         {
             float[] columnWidth = { 50, 200, 100, 100, 100 };
             Table tableLayout = new Table(columnWidth);
@@ -30,8 +26,6 @@ namespace InventoryService.Service
             tableLayout.AddHeaderCell("oczekiwana ilosc");
             tableLayout.AddHeaderCell("rzeczywista ilosc");
             tableLayout.AddHeaderCell("roznica");
-
-            var items = _itemService.GetAllItems();
 
             foreach (var item in items)
             {
