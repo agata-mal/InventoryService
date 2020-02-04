@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using InventoryService.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace InventoryService.Models
 
 {
@@ -8,6 +9,7 @@ namespace InventoryService.Models
         [Index("ItemNumber", IsUnique = true)]
         public int ItemNumber { get; set; }
         public string ItemName { get; set; }
+        public Unit Unit { get; set; }
         public double ExpectedAmount { get; set; }
         public double? RealAmount { get; set; }
     }

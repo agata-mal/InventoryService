@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "ItemList";
 }
-
+@using InventoryService.Enums
 <h2>Wszystkie produkty</h2>
 
 <p>
@@ -16,6 +16,9 @@
         </th>
         <th>
             Nazwa produktu
+        </th>
+        <th>
+            Jm
         </th>
         <th>
             Oczekiwana ilość
@@ -33,6 +36,9 @@
                 @Html.DisplayFor(modelItem => item.ItemName)
             </td>
             <td>
+                @item.Unit.GetDisplayName().ToString()
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.ExpectedAmount)
             </td>
             <td>
@@ -45,5 +51,5 @@
 
 </table>
 <div>
-    @Html.ActionLink("Generuj PDF","CreatePdf","Item")
+    @Html.ActionLink("Generuj PDF", "CreatePdf", "Item")
 </div>

@@ -182,6 +182,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Enums\EnumExtensions.cs" />
+    <Compile Include="Enums\Unit.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,6 +198,14 @@
     <Compile Include="Migrations\201912311311413_Add_ExpectedAmount_Add_RealAmount_ItemModel.cs" />
     <Compile Include="Migrations\201912311311413_Add_ExpectedAmount_Add_RealAmount_ItemModel.Designer.cs">
       <DependentUpon>201912311311413_Add_ExpectedAmount_Add_RealAmount_ItemModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002040952228_dodanie_jednostek_miary.cs" />
+    <Compile Include="Migrations\202002040952228_dodanie_jednostek_miary.Designer.cs">
+      <DependentUpon>202002040952228_dodanie_jednostek_miary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002041533228_usuniecieNullableUnit.cs" />
+    <Compile Include="Migrations\202002041533228_usuniecieNullableUnit.Designer.cs">
+      <DependentUpon>202002041533228_usuniecieNullableUnit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApiConsumer\Models\ItemModel.cs" />
@@ -280,6 +290,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912311311413_Add_ExpectedAmount_Add_RealAmount_ItemModel.resx">
       <DependentUpon>201912311311413_Add_ExpectedAmount_Add_RealAmount_ItemModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002040952228_dodanie_jednostek_miary.resx">
+      <DependentUpon>202002040952228_dodanie_jednostek_miary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002041533228_usuniecieNullableUnit.resx">
+      <DependentUpon>202002041533228_usuniecieNullableUnit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
