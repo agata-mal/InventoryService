@@ -1,4 +1,5 @@
-﻿using iText.Layout.Element;
+﻿using InventoryService.Enums;
+using iText.Layout.Element;
 using iText.Layout.Properties;
 using PDFServiceAPI.Models;
 using PDFServiceAPI.Service.Interfaces;
@@ -18,20 +19,21 @@ namespace PDFServiceAPI.Service
         }
         public Table AddTableToPdf(List<ItemModel> items)
         {
-            float[] columnWidth = { 50, 200, 100, 100, 100 };
+            float[] columnWidth = { 50, 100,100, 100, 100, 50 };
             Table tableLayout = new Table(columnWidth);
             tableLayout.SetTextAlignment(TextAlignment.CENTER);
             tableLayout.AddHeaderCell("kod produktu");
             tableLayout.AddHeaderCell("nazwa produktu");
+            tableLayout.AddHeaderCell("Jm");
             tableLayout.AddHeaderCell("oczekiwana ilosc");
             tableLayout.AddHeaderCell("rzeczywista ilosc");
             tableLayout.AddHeaderCell("roznica");
 
             foreach (var item in items)
             {
-
                 tableLayout.AddCell(item.ItemNumber.ToString());
                 tableLayout.AddCell(item.ItemName);
+                tableLayout.AddCell(item.Unit.GetDisplayName());
                 tableLayout.AddCell(item.ExpectedAmount.ToString());
                 tableLayout.AddCell(item.RealAmount.ToString());
                 tableLayout.AddCell(GetDifferenceCell(item.RealAmount, item.ExpectedAmount));

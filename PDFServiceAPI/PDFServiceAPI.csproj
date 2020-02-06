@@ -200,6 +200,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PDFGenerationController.cs" />
+    <Compile Include="Enums\EnumExtensions.cs" />
     <Compile Include="Enums\Unit.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

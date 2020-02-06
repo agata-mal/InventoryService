@@ -3,16 +3,17 @@
 @{
     ViewBag.Title = "DeleteItem";
 }
+@using InventoryService.Enums
 
 <h2>Usuń produkt</h2>
 
 <h3>Czy chcesz usunąć ten produkt?</h3>
 <div>
-    
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
-           Kod produktu
+            Kod produktu
         </dt>
 
         <dd>
@@ -32,10 +33,7 @@
         </dt>
 
         <dd>
-            
-            @Html.DisplayFor(model=> model.Unit)
-
-
+            @Model.Unit.GetDisplayName()
         </dd>
         <dt>
             Oczekiwana ilość
@@ -47,7 +45,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

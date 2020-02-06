@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "InventoryView";
 }
-
+@using InventoryService.Enums
 <h2>Tryb Inwentaryzacji</h2>
 
 
@@ -15,7 +15,9 @@
         <th>
             Nazwa produktu
         </th>
-
+        <th>
+            Jm
+        </th>
         <th>
             Stan rzeczywisty
         </th>
@@ -33,10 +35,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ItemName)
             </td>
-
+            <td>
+                @item.Unit.GetDisplayName()
+            </td>
             <td>
                 <div class="col-md-10">
-                    @Html.EditorFor(modelItem => item.RealAmount, new { htmlAttributes = new { @class = "form-control", id = "realAmount"+item.Id }  })
+                    @Html.EditorFor(modelItem => item.RealAmount, new { htmlAttributes = new { @class = "form-control", id = "realAmount" + item.Id } })
                     @Html.ValidationMessageFor(modelItem => item.RealAmount, "", new { @class = "text-danger" })
 
                 </div>
