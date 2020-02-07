@@ -7,10 +7,10 @@
 <h2>Dodaj nowy produkt</h2>
 
 
-@using (Html.BeginForm("CreateNewItem","Item", FormMethod.Post)) 
+@using (Html.BeginForm("CreateNewItem", "Item", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         
         <hr />
@@ -32,14 +32,16 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model=> model.Unit, "Jm", htmlAttributes: new { @class="control-label col-md-2"})
+            @Html.LabelFor(model => model.Unit, "Jm", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class=" col-md-10">
-                @Html.EnumDropDownListFor(model=> model.Unit, "Wybierz jednostkę", new {@class ="form-control"})
+                @Html.EnumDropDownListFor(model => model.Unit, "Wybierz jednostkę", new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
+            
             @Html.LabelFor(model => model.ExpectedAmount, "Oczekiwana ilość", htmlAttributes: new { @class = "control-label col-md-2" })
+           
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ExpectedAmount, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ExpectedAmount, "", new { @class = "text-danger" })

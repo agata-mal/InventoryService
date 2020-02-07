@@ -9,6 +9,7 @@
 
 @using (Html.BeginForm("EditItem","Item", FormMethod.Post))
 {
+    @Html.HiddenFor(model=>model.RealAmount)
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
