@@ -45,8 +45,9 @@
         <div class="form-group">
             <label class="control-label col-md-2">Oczekiwana ilość</label>
             <div class="col-md-10">
+                @{ Html.EnableClientValidation(false); }
                 @Html.EditorFor(model => model.ExpectedAmount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ExpectedAmount, "", new { @class = "text-danger" })
+                @{ Html.EnableClientValidation(true); }
             </div>
         </div>
 
