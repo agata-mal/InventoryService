@@ -19,7 +19,7 @@ namespace PDFServiceAPI.Service
         }
         public Table AddTableToPdf(List<ItemModel> items)
         {
-            float[] columnWidth = { 50, 100,100, 100, 100, 50 };
+            float[] columnWidth = { 50, 100, 100, 100, 100, 50 };
             Table tableLayout = new Table(columnWidth);
             tableLayout.SetTextAlignment(TextAlignment.CENTER);
             tableLayout.AddHeaderCell("kod produktu");
@@ -46,6 +46,8 @@ namespace PDFServiceAPI.Service
         {
             var difference = realAmount - expectedAmount;
             var cell = new Cell();
+            if (difference.HasValue)
+                difference = Math.Round(difference.Value, 2);
             if (difference < 0)
             {
                 cell.Add(new Paragraph("- " + Math.Abs(difference.Value).ToString()));
