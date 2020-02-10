@@ -207,6 +207,10 @@
     <Compile Include="Migrations\202002041533228_usuniecieNullableUnit.Designer.cs">
       <DependentUpon>202002041533228_usuniecieNullableUnit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002100934227_dodanie_zakresu_na_ItemNumber.cs" />
+    <Compile Include="Migrations\202002100934227_dodanie_zakresu_na_ItemNumber.Designer.cs">
+      <DependentUpon>202002100934227_dodanie_zakresu_na_ItemNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApiConsumer\Models\ItemModel.cs" />
     <Compile Include="ApiConsumer\Models\PDFRaportInputModel.cs" />
@@ -296,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002041533228_usuniecieNullableUnit.resx">
       <DependentUpon>202002041533228_usuniecieNullableUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002100934227_dodanie_zakresu_na_ItemNumber.resx">
+      <DependentUpon>202002100934227_dodanie_zakresu_na_ItemNumber.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
