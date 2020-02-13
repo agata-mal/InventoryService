@@ -1,4 +1,5 @@
-﻿using InventoryService.App_Start;
+﻿using FluentValidation.Mvc;
+using InventoryService.App_Start;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -14,7 +15,7 @@ namespace InventoryService
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfig.RegisterMappings();
-       
+            FluentValidationModelValidatorProvider.Configure();
         }
     }
 }

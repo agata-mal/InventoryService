@@ -28,6 +28,9 @@ namespace InventoryService
 
             bundles.Add(new ScriptBundle("~/Scripts/ViewScripts/InventoryScript").Include(
                 "~/Scripts/ViewScripts/InventoryScript.js"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/ViewScripts/ItemScript").Include(
+              "~/Scripts/ViewScripts/ItemScript.js"));
         }
     }
 }

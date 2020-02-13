@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using InventoryService.ApiConsumer;
 using InventoryService.ApiConsumer.Models;
 using InventoryService.Models;
@@ -14,9 +15,11 @@ namespace InventoryService.Controllers
     public class ItemController : Controller
     {
         private readonly IItemService _itemService;
-        public ItemController(IItemService itemService)
+        private readonly IValidator<Item> _itemValidator;
+        public ItemController(IItemService itemService, IValidator<Item> itemValidator)
         {
             _itemService = itemService;
+            _itemValidator = itemValidator;
         }
         // GET: Item
         public ActionResult ItemIndex()
@@ -49,10 +52,21 @@ namespace InventoryService.Controllers
         [HttpPost]
         public ActionResult CreateNewItem(VM_Item model)
         {
+
             var newItem = new Item();
             Mapper.Map(model, newItem);
-            _itemService.CreateItem(newItem);
-            return RedirectToAction("ItemIndex", "Item");
+            var result = _itemValidator.Validate(newItem);
+            if (result.IsValid)
+            {
+                _itemService.CreateItem(newItem);
+                return RedirectToAction("ItemIndex", "Item");
+            }
+            foreach (var item in result.Errors)
+            {
+                ModelState.AddModelError("", item.ErrorMessage);
+            }
+            return View("CreateItem", model);
+
         }
         [HttpPost]
         public ActionResult EditItem(VM_Item model)

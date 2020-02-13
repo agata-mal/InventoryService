@@ -3,10 +3,13 @@
 
 namespace InventoryService.App_Start
 {
+    using FluentValidation;
+    using InventoryService.Models;
     using InventoryService.Models.Repository;
     using InventoryService.Models.Repository.Interfaces;
     using InventoryService.Service;
     using InventoryService.Service.Interfaces;
+    using InventoryService.Validation;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Web.Common;
@@ -66,6 +69,7 @@ namespace InventoryService.App_Start
         {
             kernel.Bind<IItemService>().To<ItemService>();
             kernel.Bind<IItemRepository>().To<ItemRepository>();
+            kernel.Bind<IValidator<Item>>().To<ItemValidator>();
          
         }        
     }
