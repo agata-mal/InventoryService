@@ -10,5 +10,6 @@ namespace InventoryService.Service.Interfaces
         Item GetItemById(int id);
         void EditItem(Item model);
         void DeleteItem(Item model);
+        Item GetItemByItemNumber(double data);
     }
 }

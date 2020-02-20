@@ -34,6 +34,9 @@ namespace InventoryService.Service
         {
             _itemRepository.Delete(model);
         }
-
+        public Item GetItemByItemNumber (double data)
+        {
+            return _itemRepository.GetWhere(x => x.ItemNumber == data).FirstOrDefault();
+        }
     }
 }
