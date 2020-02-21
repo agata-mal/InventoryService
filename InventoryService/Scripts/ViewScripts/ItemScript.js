@@ -1,6 +1,9 @@
 ﻿$(document).ready(() => {
     this.ItemValidation();
-    this.Check();
+    $('#ItemNumber').change(() => {
+        this.CheckItemNumberAvailability();
+    });
+
 });
 
 
@@ -21,23 +24,25 @@ function ItemValidation() {
     }, "Oczekiwana ilość produktu \"szt\" musi być liczbą całkowią");
     $('#ExpectedAmount').addClass('ExpectedAmountRule');
 
-   
+
 
 }
-function Check() {
-    var element = '#ItemNumber';
-    $ajax({
-        type: 'GET',
-        url: '/Item/CheckItemNumber',
-        dataType: 'json',
-        data: $(element).val(),
-        succes: (data) => {
-            if (data == 1) {
-                alert: ('Ten produkt już istnieje!');
+function CheckItemNumberAvailability() {
+    
+    $.ajax(
+        {
+            type: 'POST',
+            url: '/Item/CheckItemNumber',
+            data: {
+                productCode: Number($('#ItemNumber').val())
+            },
+            success: (responseData) => {
+                if (responseData.Response === 'True') {
+                    alert('Ten produkt już istnieje!');
+                }
             }
-           
-        }
 
-    })
+
+        })
 }
-   
+

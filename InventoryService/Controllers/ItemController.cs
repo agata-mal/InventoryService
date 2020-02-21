@@ -94,16 +94,16 @@ namespace InventoryService.Controllers
             var file = await client.PostWithFile(inputModel);
             return File(file, "application/pdf");
         }
-        [HttpGet]
-        public JsonResult CheckItemNumber(double data)
+
+        public JsonResult CheckItemNumber(int productCode)
         {
-            var search = _itemService.GetItemByItemNumber(data);
+            var search = _itemService.GetItemByItemNumber(productCode);
             if (search != null)
-                return Json(1);
+                return Json(new { Response = "True" }, JsonRequestBehavior.AllowGet);
             else
-                return Json(0);
+                return Json(new { Response = "False" }, JsonRequestBehavior.AllowGet);
         }
-       
+
 
     }
 }
