@@ -22,3 +22,136 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+tr:nth-child(even) {
+    background-color: #f2ffe6
+}
+
+
+th {
+    text-align: center;
+    color: #401500;
+    background-color: #ccff99;
+    border-color: #a6ff4d;
+    border-top-color: #a6ff4d;
+}
+
+h2 {
+    margin-top: 3%;
+    color: #401500;
+}
+
+.tdItemNumber {
+    width: 10%;
+    text-align: center;
+}
+
+.tdItemName {
+    width: 50%;
+}
+
+.tdUnit {
+    width: 5%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tdExpectedAmount {
+    width: 15%;
+}
+
+.tdRealAmount {
+    width: 15%;
+    text-align: center;
+}
+
+.aEditItem {
+    color: #4d4d33;
+    left: 35%;
+}
+
+    .aEditItem:hover {
+        color: #000000;
+        text-decoration: none;
+    }
+
+.aDeleteItem {
+    color: #4d4d33;
+    left: 50%;
+}
+
+    .aDeleteItem:hover {
+        color: #000000;
+        text-decoration: none;
+    }
+
+.aAddNewItem {
+    color: #4d4d33;
+    font-size: 130%;
+    margin-top: 1%;
+    margin-left: 83%;
+}
+
+    .aAddNewItem:hover {
+        color: #000000;
+        text-decoration: none;
+    }
+
+.navColors {
+    background-color: #455445;
+    border-bottom: #455445;
+}
+
+.h2Inventory {
+    margin-bottom: 3%;
+}
+
+.aSaveRealAmount {
+    color: #4d4d33;
+    left: 45%;
+    vertical-align: middle;
+}
+
+    .aSaveRealAmount:hover {
+        color: #000000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.aBackToList {
+    color: #4d4d33;
+    margin-top: 2%;
+    font-size: 130%;
+}
+
+    .aBackToList:hover {
+        color: #000000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.button {
+    margin-left: 23%;
+}
+
+    .button:hover {
+        background-color: #ccff99;
+    }
+
+.formBackgroundColor {
+    background-color: #f2ffe6;
+}
+h3{
+    margin-top:3%;
+    margin-bottom: 3%;
+  
+}
+.dd-dtDeleteItem {
+    color: #401500;
+    font-size: 120%;
+}
+dd{
+    margin-bottom:1%;
+    margin-top:1%;
+}

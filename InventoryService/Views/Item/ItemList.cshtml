@@ -7,9 +7,20 @@
 <h2>Wszystkie produkty</h2>
 
 <p>
-    @Html.ActionLink("Dodaj nowy produkt", "CreateNewItem")
+    <a href="/Item/CreateNewItem" class="glyphicon glyphicon-plus aAddNewItem">
+        
+    </a>
+    <span>Dodaj nowy produkt</span>
+  
 </p>
-<table class="table">
+<p>
+    <a href="/Item/CreatePdf" class="glyphicon glyphicon-arrow-down aAddNewItem">
+
+    </a>
+    <span>Pobierz raport</span>
+
+</p>
+<table class="table table-bordered">
     <tr>
         <th>
             Kod produktu
@@ -23,33 +34,33 @@
         <th>
             Oczekiwana ilość
         </th>
-        <th></th>
+        <th>
+            Akcja
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            <td class="tdItemNumber">
                 @Html.DisplayFor(modelItem => item.ItemNumber)
             </td>
-            <td>
+            <td class="tdItemName">
                 @Html.DisplayFor(modelItem => item.ItemName)
             </td>
-            <td>
+            <td class="tdUnit">
                 @item.Unit.GetDisplayName().ToString()
             </td>
-            <td>
+            <td class="tdExpectedAmount">
                 @Html.DisplayFor(modelItem => item.ExpectedAmount)
             </td>
             <td>
-                @Html.ActionLink("Edytuj", "EditItem", new { id = item.Id }) |
-                @Html.ActionLink("Usuń", "DeleteItem", new { id = item.Id })
+                <a href="/Item/EditItem/@item.Id" class="glyphicon glyphicon-pencil aEditItem" />
+                <a href="/Item/DeleteItem/@item.Id" class="glyphicon glyphicon-trash aDeleteItem"/>
             </td>
         </tr>
     }
 
 
 </table>
-<div>
-    @Html.ActionLink("Generuj PDF", "CreatePdf", "Item")
-</div>
+

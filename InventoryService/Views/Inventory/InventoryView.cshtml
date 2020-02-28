@@ -4,10 +4,10 @@
     ViewBag.Title = "InventoryView";
 }
 @using InventoryService.Enums
-<h2>Tryb Inwentaryzacji</h2>
+<h2 class="h2Inventory">Tryb Inwentaryzacji</h2>
 
 
-<table class="table">
+<table class="table table-bordered">
     <tr>
         <th>
             Kod produktu
@@ -22,32 +22,33 @@
             Stan rzeczywisty
         </th>
         <th>
-
+            Zapisz
         </th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            <td class="tdItemNumber">
                 @Html.DisplayFor(modelItem => item.ItemNumber)
             </td>
-            <td>
+            <td class="tdItemName">
                 @Html.DisplayFor(modelItem => item.ItemName)
             </td>
-            <td>
+            <td class="tdUnit">
                 @item.Unit.GetDisplayName()
             </td>
-            <td>
-                <div class="col-md-10">
+            <td class="tdRealAmount">
+                <div>
                     @Html.EditorFor(modelItem => item.RealAmount, new { htmlAttributes = new { @class = "form-control", id = "realAmount" + item.Id } })
                     @Html.ValidationMessageFor(modelItem => item.RealAmount, "", new { @class = "text-danger" })
 
                 </div>
             </td>
             <td>
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Zapisz" class="btn btn-default btnSave" data-href="@item.Id" />
+                <div>
+                    <a data-href="@item.Id" class="glyphicon glyphicon-ok aSaveRealAmount">
+                    </a>
                 </div>
             </td>
 

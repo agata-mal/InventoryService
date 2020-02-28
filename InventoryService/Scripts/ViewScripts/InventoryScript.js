@@ -1,5 +1,5 @@
 ﻿$(document).ready(() => {
-    $('.btnSave').click(() => {
+    $('.glyphicon-ok').click(() => {
         var idValue = $(event.target).data('href');
         var elementName = '#realAmount' + idValue;
         $.ajax(

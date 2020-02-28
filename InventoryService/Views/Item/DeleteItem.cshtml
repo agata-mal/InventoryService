@@ -4,14 +4,22 @@
     ViewBag.Title = "DeleteItem";
 }
 @using InventoryService.Enums
+<p>
+    <a href="/Item/ItemIndex" class="glyphicon glyphicon-arrow-left aBackToList">
+
+    </a>
+    <span class="aBackToList"> Wróć do listy</span>
+</p>
 
 <h2>Usuń produkt</h2>
 
-<h3>Czy chcesz usunąć ten produkt?</h3>
+
+
 <div>
 
     <hr />
-    <dl class="dl-horizontal">
+    <h3>Czy chcesz usunąć ten produkt?</h3>
+    <dl class="dl-horizontal dd-dtDeleteItem">
         <dt>
             Kod produktu
         </dt>
@@ -50,8 +58,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Usuń" class="btn btn-default" /> |
-            @Html.ActionLink("Wróc do listy", "ItemIndex")
+            <input type="submit" value="Usuń" class="btn btn-default button" /> 
+          
         </div>
     }
 </div>

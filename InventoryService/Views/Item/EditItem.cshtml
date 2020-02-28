@@ -3,17 +3,23 @@
 @{
     ViewBag.Title = "EditItem";
 }
+<p>
+    <a href="/Item/ItemIndex" class="glyphicon glyphicon-arrow-left aBackToList">
+
+    </a>
+    <span class="aBackToList"> Wróć do listy</span>
+</p>
 
 <h2>Edytuj produkt</h2>
 
 
-@using (Html.BeginForm("EditItem","Item", FormMethod.Post))
+@using (Html.BeginForm("EditItem", "Item", FormMethod.Post))
 {
-    @Html.HiddenFor(model=>model.RealAmount)
+    @Html.HiddenFor(model => model.RealAmount)
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -37,7 +43,7 @@
         <div class="form-group">
             <label class="control-label col-md-2"> Jm</label>
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Unit, "Wybierz jednostkę",  new { @class = "form-control"  })
+                @Html.EnumDropDownListFor(model => model.Unit, "Wybierz jednostkę", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -53,15 +59,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Zapisz" class="btn btn-default" />
+                <input type="submit" value="Zapisz" class="btn btn-default button" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Wróć do listy produktów", "ItemIndex")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
